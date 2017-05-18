@@ -16,4 +16,11 @@ public class oscComms : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	public void sendOscMessage (string mess){
+		Debug.Log ("sendOscMessage");
+		var message = new SharpOSC.OscMessage (mess);
+		var sender = new SharpOSC.UDPSender ("127.0.0.1", 9000);
+		sender.Send (message);
+	}
 }
